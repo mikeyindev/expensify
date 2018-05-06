@@ -1,0 +1,10 @@
+// when importing SCSS partials, leave off underscore and extension. The order of import matters
+@import './base/settings';
+@import './base/base';
+@import './components/header';
+@import './components/container';
+@import './components/button.scss';
+@import './components/option.scss';
+@import './components/widget.scss';
+@import './components/add-option.scss';
+@import './components/modal.scss';

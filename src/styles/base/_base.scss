@@ -1,0 +1,19 @@
+html {
+  font-size: 62.5%; // This converts 1 rem = 1 px
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  // rem has better support for accessibility than px
+  font-size: $m-size;
+  background: $mint-green;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+button:disabled {
+  cursor: default;
+}
