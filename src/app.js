@@ -12,9 +12,9 @@ import { addExpense, removeExpense, editExpense } from './actions/expenseActions
 import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from './actions/filterActions';
 
 const store = configureStore();
-store.dispatch(addExpense({ description: 'Water bill', createdAt: 0 }));
-store.dispatch(addExpense({ description: 'Gas bill', createdAt: 0 }));
-store.dispatch(setTextFilter('water'));
+store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
+store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000, amount: 5000 }));
+// store.dispatch(setTextFilter('water'));
 const state = store.getState();
 const filteredExpenses = filterExpenses(state.expenses, state.filters);
 console.log(filteredExpenses);
