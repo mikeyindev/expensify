@@ -18,7 +18,8 @@ export default class ExpenseForm extends React.Component {
     note: '',
     amount: '',
     createdAt: moment(),
-    calendarFocused: false
+    calendarFocused: false,
+    error: ''
   };
 
   onDescriptionChange = (e) => {
@@ -33,24 +34,50 @@ export default class ExpenseForm extends React.Component {
 
   onAmountChange = (e) => {
     const amount = e.target.value;
-    // Regex for limiting digits to optional 2 decimal places
-    if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+    // Regex for limiting digits to optional 2 decimal places, with at least 1 
+    // digit before decimal.
+    // `!amount` allows users to highlight the value and delete it, so it 
+    // matches and empty string
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
   }
 
   onDateChange = (createdAt) => {
-    this.setState(() => ({ createdAt }));
+    if (createdAt) { this.setState(() => ({ createdAt })); }
   }
 
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   }
 
+  onSubmit = (e) => {
+    e.preventDefault(); // prevent page refresh
+    // Form validation
+    if (!this.state.description || !this.state.amount) {
+      this.setState(() => ({ error: 'Please provide description and amount' }))
+    } else {
+      this.setState(() => ({ error: '' }));
+      
+      this.props.onSubmit({
+        description: this.state.description,
+        // this.state.amount is string and needs to be converted to float
+        amount: parseFloat(this.state.amount, 10) * 100,
+        // this.state.createdAt is a moment object and needs to be converted to
+        // milliseconds for the time stamp
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note
+      });
+
+      console.log('submitted');
+    }
+  }
+
   render() {
     return (
       <div>
-        <form action="">
+        <form onSubmit={this.onSubmit}>
+          {this.state.error && <p>{this.state.error}</p>}
           <input type="text" value={this.state.description} onChange={this.onDescriptionChange} placeholder="Description" autoFocus/>
           <input type="text" value={this.state.amount} onChange={this.onAmountChange} placeholder="Amount" />
           <SingleDatePicker date={this.state.createdAt} onDateChange={this.onDateChange} focused={this.state.calendarFocused} onFocusChange={this.onFocusChange} numberOfMonths={1} isOutsideRange={() => {false}} />
