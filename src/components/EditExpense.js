@@ -7,21 +7,28 @@ const EditExpensePage = (props) => {
   console.log(props);
   return (
     <div>
-      <ExpenseForm expense={props.expense} onSubmit={
-        // The expense object is passed in by ExpenseForm when it calls
-        // onSubmit(). The expense object contains the updated state but doesn't
-        // include id. That why we still need to use props.expense.id instead of
-        // expense.id 
-        (expense) => {
-          props.dispatch(editExpense(props.expense.id, expense));
-          props.history.push('/');
-          console.log('Updated', expense);
-        }} 
+      <ExpenseForm 
+        expense={props.expense} 
+        onSubmit={
+          // The expense object is passed in by ExpenseForm when it calls
+          // onSubmit(). The expense object contains the updated state but
+          // doesn't include id. That why we still need to use props.expense.id
+          // instead of expense.id 
+          (expense) => {
+            props.dispatch(editExpense(props.expense.id, expense));
+            props.history.push('/');
+            console.log('Updated', expense);
+          }
+        } 
       />
-      <button onClick={() => {
-          props.dispatch(removeExpense({ id: props.expense.id }));
-          props.history.push('/');
-      }}>Remove</button>
+      <button 
+        onClick={
+          () => {
+            props.dispatch(removeExpense({ id: props.expense.id }));
+            props.history.push('/');
+          }
+        }
+      >Remove</button>
     </div>
   );
 };
