@@ -52,5 +52,15 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [style-loader](https://github.com/webpack-contrib/style-loader) - Adds CSS to DOM by injecting <style> tag to index.html.
 
+## Test frameworks
+
+[Enzyme](http://airbnb.io/enzyme/) - JavaScript testing utility that mimicks jQuery's API for DOM manipulation and traversal. Requires `enzyme-adapter-react-16`. There is a different Enzyme adapter for different versions of React. Also requires `raf` polyfill.
+
+[enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) - Converts Enzyme wrappers to a format compatible with Jest snapshot testing.
+
+[raf](https://github.com/chrisdickinson/raf) - requestAnimationFrame polyfill library for node and the browser required by the React and Jest test environment.
+
+[Jest](https://facebook.github.io/jest/) - See `jest.config.json` for the custom configurations made.
+
 ## Instructions
 `npm run dev-server` to run `webpack-dev-server`.
