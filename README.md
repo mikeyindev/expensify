@@ -1,6 +1,5 @@
 # Expensify
-
-## Your expenses on track
+## *Your expenses on track*
 
 This project uses React and Redux to build an expense tracker.
 
@@ -8,7 +7,9 @@ Babel configurations can be found in `.babelrc`
 
 Webpack configurations can be found in `webpack.config.js`.
 
+
 # Dependencies
+
 [React](https://reactjs.org/) - Webpack plugin for Babel.
 
 [ReactDOM](https://reactjs.org/docs/react-dom.html) - Provides DOM-specific methods and renders React components.
@@ -23,7 +24,7 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [react-addons-shallow-compare](https://www.npmjs.com/package/react-addons-shallow-compare) - Performs shallow equality check on `props` and `nextProps` objects as well as `state` and `nextState` objects.
 
-[react-dates](https://github.com/airbnb/react-dates) - Requires `moment` and `react-addons-shallow-compare` as peer dependencies even though `react-addons-shallow-comopare` is deprecated.
+[react-dates](https://github.com/airbnb/react-dates) - Requires `moment` and `react-addons-shallow-compare` as peer dependencies even though `react-addons-shallow-compare` is deprecated.
 
 [normalize.css](http://necolas.github.io/normalize.css/) - Renders elements consistently across browsers.
 
@@ -39,7 +40,9 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [Webpack DevServer](https://webpack.js.org/configuration/dev-server/) - A developvement server using Webpack that provides live reloading.
 
+
 # Webpack Plugins
+
 [babel-loader]()
 
 [babel-plugin-transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) - Babel plugin for transforming class properties so there is no longer need to bind the `this` context with `this.someHandler = this.someHandler.bind(this);`. Current class syntax for JavaScript only allows you to define methods inside the class but not properties. This plugin enables properties.
@@ -52,15 +55,19 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [style-loader](https://github.com/webpack-contrib/style-loader) - Adds CSS to DOM by injecting <style> tag to index.html.
 
+
 ## Test frameworks
 
-[Enzyme](http://airbnb.io/enzyme/) - JavaScript testing utility that mimicks jQuery's API for DOM manipulation and traversal. Requires `enzyme-adapter-react-16`. There is a different Enzyme adapter for different versions of React. Also requires `raf` polyfill.
+[Snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html) of components with Enzyme and Jest is similar to taking a screenshot of a rendered UI component then compare it to a reference image stored for testing purposes. The test fails if two images do not match. 
+
+[Enzyme](http://airbnb.io/enzyme/) - JavaScript testing utility that mimicks jQuery's API for DOM manipulation and traversal. Requires `enzyme-adapter-react-16`. There are different Enzyme adapters for different versions of React. Also requires `raf` polyfill.
 
 [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) - Converts Enzyme wrappers to a format compatible with Jest snapshot testing.
 
 [raf](https://github.com/chrisdickinson/raf) - requestAnimationFrame polyfill library for node and the browser required by the React and Jest test environment.
 
 [Jest](https://facebook.github.io/jest/) - See `jest.config.json` for the custom configurations made.
+
 
 ## Instructions
 `npm run dev-server` to run `webpack-dev-server`.
