@@ -13,4 +13,3 @@ test('should render Header correctly', () => {
 
   expect(wrapper).toMatchSnapshot();
 });
-

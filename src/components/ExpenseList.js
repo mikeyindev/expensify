@@ -4,10 +4,13 @@ import ExpenseListItem from './ExpenseListItem';
 import filterExpenses from '../selectors/filterExpenses';
 
 // Presentational component
-const ExpenseList = (props) => (
+// 2 different versions are being exported. This one unconnected, the one 
+// connected to the store is exported below.
+export const ExpenseList = (props) => (
   <div>
     <h1>Expense List</h1>
-    {props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense} />))}
+    {props.expenses.length === 0 ? (<p>No expenses</p>) :
+      (props.expenses.map((expense) => (<ExpenseListItem key={expense.id} {...expense} />)))}
   </div>
 );
 
