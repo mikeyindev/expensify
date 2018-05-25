@@ -71,4 +71,5 @@ Webpack configurations can be found in `webpack.config.js`.
 
 ## Instructions
 `npm run dev-server` to run `webpack-dev-server`.
+`npm run build:prod` to run production build
 `npm test` to run tests.
