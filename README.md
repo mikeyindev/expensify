@@ -49,6 +49,8 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [css-loader](https://github.com/webpack-contrib/css-loader) - Resolves `@import` statements like `import/require()`.
 
+[mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) - Used to extract CSS from bundle into a separate CSS file. It creates a CSS file per JS file which contains CSS. Supports SourceMaps.
+
 [node-sass](https://github.com/sass/node-sass) - Provides Node binding to LibSass, the CSS preprocessor written in C. 
 
 [sass-loader](https://github.com/webpack-contrib/sass-loader) - Compiles SASS into CSS using `node-sass`. Requires `node-sass` and `webpack` as peer dependencies.
