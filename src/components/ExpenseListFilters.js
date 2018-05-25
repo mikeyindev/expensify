@@ -5,7 +5,7 @@ import { DateRangePicker } from 'react-dates';
 
 // Presentational component that allows us to set the text filter from the UI.
 // The new text filter is written to the store
-class ExpenseListFilters extends React.Component {
+export class ExpenseListFilters extends React.Component {
   state = {
     calendarFocused: null
   };
@@ -65,7 +65,7 @@ class ExpenseListFilters extends React.Component {
   }
 }
 
-const mapDispatchtoProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   setStartDate: (date) => dispatch(setStartDate(date)),
   setEndDate: (date) => dispatch(setEndDate(date)),
   setTextFilter: (text) => dispatch(setTextFilter(text)),
@@ -75,4 +75,4 @@ const mapDispatchtoProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({ filters: state.filters });
 
-export default connect(mapStateToProps, mapDispatchtoProps)(ExpenseListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
