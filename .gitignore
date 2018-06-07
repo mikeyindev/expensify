@@ -1,5 +1,6 @@
 .idea
 node_modules
+dist
 *.log
 
 # These files are emitted by Webpack during builds
