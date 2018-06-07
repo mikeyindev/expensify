@@ -45,7 +45,7 @@ Webpack configurations can be found in `webpack.config.js`.
 
 # Webpack Plugins
 
-[babel-loader](https://github.com/babel/babel-loader)
+[babel-loader](https://github.com/babel/babel-loader) - Transpiles JS files using Babel and Webpack.
 
 [babel-plugin-transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) - Babel plugin for transforming class properties so there is no longer need to bind the `this` context with `this.someHandler = this.someHandler.bind(this);`. Current class syntax for JavaScript only allows you to define methods inside the class but not properties. This plugin enables properties.
 
