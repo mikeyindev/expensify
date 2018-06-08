@@ -24,6 +24,8 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [normalize.css](http://necolas.github.io/normalize.css/) - Renders elements consistently across browsers.
 
+[Numeral.js](http://numeraljs.com/) - Library for formatting and manipulating numbers.
+
 [React](https://reactjs.org/) - Webpack plugin for Babel.
 
 [ReactDOM](https://reactjs.org/docs/react-dom.html) - Provides DOM-specific methods and renders React components.
