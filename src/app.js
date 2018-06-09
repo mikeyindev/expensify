@@ -8,6 +8,7 @@ import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore';
+import './firebase/firebase';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));

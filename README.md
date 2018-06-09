@@ -3,6 +3,8 @@
 
 This project uses React and Redux to build an expense tracker.
 
+**Click [here](https://young-thicket-17811.herokuapp.com/) to see the app in action!**
+
 Babel configurations can be found in `.babelrc`
 
 Webpack configurations can be found in `webpack.config.js`.

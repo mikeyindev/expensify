@@ -9,12 +9,10 @@ console.log(path.join(__dirname, 'public'));
 
 module.exports = (env) => {
   const isProduction = env ==='production';
-  // Output a file named 'styles.css'
   // console.log('env', env);
 
   return {
     mode: "development",
-    // entry: "./src/app.js",
     entry: "./src/app.js",
     output: {
       path: path.join(__dirname, "public", 'dist'),
