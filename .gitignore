@@ -2,6 +2,7 @@
 node_modules
 dist
 *.log
+util.js
 
 # These files are emitted by Webpack during builds
 bundle.js

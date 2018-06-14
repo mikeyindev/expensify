@@ -1,7 +1,8 @@
 import * as firebase from 'firebase';
+import api from '../util';
 
 const config = {
-  apiKey: "AIzaSyBJ1M7YNvDMe3638cfodgcodsxycXSdj-Q",
+  apiKey: config.apiKey,
   authDomain: "expensify-3872d.firebaseapp.com",
   databaseURL: "https://expensify-3872d.firebaseio.com",
   projectId: "expensify-3872d",
@@ -13,4 +14,9 @@ firebase.initializeApp(config);
 
 firebase.database().ref().set({
   name: 'Mike Yin'
+}).then(() => {
+  console.log('Data is saved.');
+}).catch((error) => {
+  console.log('This failed: ', error);
 });
+

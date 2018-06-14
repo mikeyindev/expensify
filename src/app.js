@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // When importing from node_modules directory, no need to specify path. Normalize.css is used for CSS reset
 import 'normalize.css/normalize.css';
 // Need to set up loaders in webpack to load CSS
-// import './styles/styles.scss';
+import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore';
