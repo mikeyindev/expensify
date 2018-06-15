@@ -32,13 +32,17 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [ReactDOM](https://reactjs.org/docs/react-dom.html) - Provides DOM-specific methods and renders React components.
 
-[Redux](https://redux.js.org/)
-
-[react-redux](https://github.com/reduxjs/react-redux) - React bindings for Redux. They are not included in Redus by default.
-
 [react-addons-shallow-compare](https://www.npmjs.com/package/react-addons-shallow-compare) - Performs shallow equality check on `props` and `nextProps` objects as well as `state` and `nextState` objects.
 
 [react-dates](https://github.com/airbnb/react-dates) - Requires `moment` and `react-addons-shallow-compare` as peer dependencies even though `react-addons-shallow-compare` is deprecated.
+
+[react-redux](https://github.com/reduxjs/react-redux) - React bindings for Redux. They are not included in Redus by default.
+
+[react-thunk](https://github.com/reduxjs/redux-thunk) - Thunk middleware for Redux which allows you to write action generators that return a function instead of an action, i.e. a function that performs an asynchronous dispatch or dispatch an action only if certain conditions are met.
+
+[Redux](https://redux.js.org/)
+
+[Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension) - Install Redux DevTools browser extension.
 
 [uuid](https://www.npmjs.com/package/uuid) - Generates RFC-compliant universally unique identifier.
 
