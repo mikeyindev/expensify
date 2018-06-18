@@ -16,9 +16,13 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [babel-eslint](https://github.com/babel/babel-eslint) - Lints Babel code not supported by ESLint.
 
-[babel-preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) - Babel preset that transforms ES2015+ down to ES5. Automatically determines the Babel plugins and polyfills you need based on targeted browser or runtime.
+[babel-preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) - Babel preset that transpiles ES2015+ down to ES5. Automatically determines the Babel plugins and polyfills you need based on targeted browser or runtime.
 
 [babel-preset-react](https://babeljs.io/docs/plugins/preset-react/) - Babel preset that transforms JSX into createElement calls.
+
+[cross-env](https://github.com/kentcdodds/cross-env) - Cross-operating system environment scripts. Windows command prompts can't parse `NODE_ENV=production` due to a difference between how Windows and POSIX handle `env` variables.
+
+[dotenv](https://github.com/motdotla/dotenv) = Loads environment variables from `.env` file into `process.env`. This allows storing environment configurations separate from the code.
 
 [Express](https://expressjs.com/) - Minimal Node.js framework.
 
@@ -43,6 +47,8 @@ Webpack configurations can be found in `webpack.config.js`.
 [Redux](https://redux.js.org/)
 
 [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension) - Install Redux DevTools browser extension.
+
+[redux-mock-store](https://github.com/dmitry-zaets/redux-mock-store) - A mock store for testing Redux asynchronous action generators and middleware.
 
 [uuid](https://www.npmjs.com/package/uuid) - Generates RFC-compliant universally unique identifier.
 

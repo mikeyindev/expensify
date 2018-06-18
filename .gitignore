@@ -1,9 +1,11 @@
 .idea
 node_modules
 dist
-*.log
-src/util.js
 src/.DS_Store
+
+*.log
+# Environment variable files that store API keys
+.env.*
 
 # Source map files
 *.map
