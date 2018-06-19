@@ -1,4 +1,4 @@
-import { startAddExpense, addExpense, editExpense, removeExpense, setExpenses, startSetExpenses } from '../../actions/expenseActions';
+import { startAddExpense, addExpense, editExpense, removeExpense, setExpenses, startSetExpenses, startRemoveExpense } from '../../actions/expenseActions';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -26,6 +26,24 @@ test('should setup remove expense action object', () => {
   expect(action).toEqual({
     type: 'REMOVE_EXPENSE',
     id: '123abc'
+  });
+});
+
+test('should remove expense from database and store', (done) => {
+  const store = createMockStore({});
+  const id = expenses[0].id;
+
+  store.dispatch(startRemoveExpense({ id })).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'REMOVE_EXPENSE',
+      id
+    });
+
+    return database.ref(`expenses/${id}`).once('value');
+  }).then((snapshot) => {
+    expect(snapshot.val()).toBeFalsy();
+    done();
   });
 });
 
@@ -79,25 +97,25 @@ test('should add expense to database and store', (done) => {
     return database.ref(`expenses/${actions[0].expense.id}`).once('value');
     // We expect the retrieved value, assigned to "ref", matches the
     // expenseData
-  }).then((ref) => {
-    expect(ref.val()).toEqual(expenseData);
+  }).then((snapshot) => {
+    expect(snapshot.val()).toEqual(expenseData);
     // done() is called so jest knows when the asynchronous test finished
     // running. Saving to Firebase is asynchronous.
     done();
-    }).catch((err) => {
-      console.log(err.message);
     });
 });
 
-test('should add expense with defaults to database and store', () => {
+test('should add expense with defaults to database and store', (done) => {
   const store = createMockStore({});
   const expenseData = {
     description: '',
+    note: '',
     amount: 0,
     createdAt: 0
   }
 
-  store.dispatch(startAddExpense(expenseData)).then((done) => {
+  store.dispatch(startAddExpense(expenseData)).then(() => {
+    const actions = store.getActions();
     expect(actions[0]).toEqual({
       type: 'ADD_EXPENSE',
       expense: {
@@ -110,8 +128,6 @@ test('should add expense with defaults to database and store', () => {
   }).then((snapshot) => {
     expect(snapshot.val()).toEqual(expenseData);
     done();
-    }).catch((err) => {
-      console.log(err.message);
     });
 });
 
@@ -140,15 +156,15 @@ test('should setup set expense action object with data', () => {
   });
 });
 
-test('should fetch the expenses from Firebase', () => {
+test('should fetch the expenses from Firebase', (done) => {
   const store = createMockStore({});
 
-  store.dispatch(startSetExpenses()).then((done) => {
+  store.dispatch(startSetExpenses()).then(() => {
     const actions = store.getActions();
     expect(actions[0]).toEqual({
       type: 'SET_EXPENSES',
       expenses
     });
     done();
-  }).catch((err) => { console.log(err.message) });
+  });
 });
