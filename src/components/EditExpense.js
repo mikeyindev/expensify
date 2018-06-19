@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editExpense, startRemoveExpense } from '../actions/expenseActions';
+import { startEditExpense, startRemoveExpense } from '../actions/expenseActions';
 import ExpenseForm from './ExpenseForm';
 
 export class EditExpensePage extends React.Component {
@@ -8,7 +8,7 @@ export class EditExpensePage extends React.Component {
   // The expense object contains the updated state but doesn't include id. That
   // why we still need to use props.expense.id instead of expense.id. 
   onSubmit = (expense) => {
-    this.props.editExpense(this.props.expense.id, expense);
+    this.props.startEditExpense(this.props.expense.id, expense);
     this.props.history.push('/');
     // console.log('Updated', expense);
   };
@@ -44,7 +44,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
-  editExpense: (id, expense) => dispatch(editExpense(id, expense)),
+  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
   startRemoveExpense: (id) => dispatch(startRemoveExpense(id))
 });
 

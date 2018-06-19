@@ -1,4 +1,4 @@
-import uuid from "uuid";
+// import uuid from "uuid";
 import database from '../firebase/firebase';
 
 // ADD_EXPENSE
@@ -8,6 +8,7 @@ export const addExpense = (expense) => ({
   expense
 });
 
+// This is the async version of ADD_EXPENSE for updating Firebase.
 export const startAddExpense = (expenseData = {}) => {
   return (dispatch) => {
     const {
@@ -36,13 +37,14 @@ export const startAddExpense = (expenseData = {}) => {
 // REMOVE_EXPENSE
 export const removeExpense = ({ id } = {}) => ({ type: "REMOVE_EXPENSE", id });
 
+// This is the async version of REMOVE_EXPENSE for updating Firebase.
 export const startRemoveExpense = ({ id } = {}) => {
   return (dispatch) => { 
     return database.ref(`expenses/${id}`).remove().then(() => {
       dispatch(removeExpense({ id }));
     });
-  }
-}
+  };
+};
 
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
@@ -50,6 +52,15 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+// This is the async version of EDIT_EXPENSE for updating Firebase.
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).update(updates).then(() => {
+      dispatch(editExpense(id, updates));
+    });
+  };
+};
 
 // SET_EXPENSES
 export const setExpenses = (expenses) => ({
@@ -72,5 +83,5 @@ export const startSetExpenses = () => {
 
         dispatch(setExpenses(expenses));
     });
-  }
+  };
 };
