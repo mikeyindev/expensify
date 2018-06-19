@@ -7,7 +7,8 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 // 'production' by Heroku and to 'test' by the test script.
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Node env variables don't get passed down to client-side JavaScript files like 'bundle.js'. They need to be manually passed to bundle.js.
+// Node env variables don't get passed down to client-side JavaScript files like
+// 'bundle.js'. They need to be manually passed to bundle.js.
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {

@@ -24,9 +24,9 @@ export const startAddExpense = (expenseData = {}) => {
       // object so we can chain then() statements for testing purposes and
       // retrieve the expense's id assigned by Firebase.
       .push(expense)
-      .then((ref) => {
+      .then((snapshot) => {
         dispatch(addExpense({
-          id: ref.key,
+          id: snapshot.key,
           ...expense
         }));
       });
@@ -42,3 +42,27 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+// SET_EXPENSES
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses
+});
+
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database.ref('expenses')
+      .once('value')
+      .then((snapshot) => {
+        const expenses = [];
+        snapshot.forEach((childSnapshot) => {
+          expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
+        });
+
+        dispatch(setExpenses(expenses));
+    });
+  }
+};

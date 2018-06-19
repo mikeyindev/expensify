@@ -1,10 +1,25 @@
-import { startAddExpense, addExpense, editExpense, removeExpense } from '../../actions/expenseActions';
+import { startAddExpense, addExpense, editExpense, removeExpense, setExpenses, startSetExpenses } from '../../actions/expenseActions';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const expenseData = {};
+
+  // We're seeding Firebase test database with the expenses in the test fixture
+  // before each test case.
+  expenses.forEach(({ id, description, note, amount, createdAt }) => {
+    expenseData[id] = { description, note, amount, createdAt };
+  });
+  // Wait for expenseData to finish saving to the database before running tests.
+  database
+    .ref('expenses')
+    .set(expenseData)
+    .then(() => done());
+});
 
 test('should setup remove expense action object', () => {
   const action = removeExpense({ id: '123abc' });
@@ -32,7 +47,7 @@ test('should setup add expense action object with provided values', () => {
   // };
 
   const action = addExpense(expenses[0]);
-  expect(action).toEqual({ 
+  expect(action).toEqual({
     type: 'ADD_EXPENSE',
     expense: expenses[0]
     // expense: {
@@ -69,7 +84,9 @@ test('should add expense to database and store', (done) => {
     // done() is called so jest knows when the asynchronous test finished
     // running. Saving to Firebase is asynchronous.
     done();
-  });
+    }).catch((err) => {
+      console.log(err.message);
+    });
 });
 
 test('should add expense with defaults to database and store', () => {
@@ -93,7 +110,9 @@ test('should add expense with defaults to database and store', () => {
   }).then((snapshot) => {
     expect(snapshot.val()).toEqual(expenseData);
     done();
-  });
+    }).catch((err) => {
+      console.log(err.message);
+    });
 });
 
 // // addExpense action object is no longer resposnible for setting default values.
@@ -111,3 +130,25 @@ test('should add expense with defaults to database and store', () => {
 //     }
 //   });
 // });
+
+
+test('should setup set expense action object with data', () => {
+  const action = setExpenses(expenses);
+  expect(action).toEqual({
+    type: 'SET_EXPENSES',
+    expenses
+  });
+});
+
+test('should fetch the expenses from Firebase', () => {
+  const store = createMockStore({});
+
+  store.dispatch(startSetExpenses()).then((done) => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_EXPENSES',
+      expenses
+    });
+    done();
+  }).catch((err) => { console.log(err.message) });
+});

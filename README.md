@@ -1,7 +1,7 @@
 # Expensify
 ## *Your expenses on track*
 
-This project uses React and Redux to build an expense tracker.
+This project uses React, Redux, and Firebase to build an expense tracker.
 
 **Click [here](https://young-thicket-17811.herokuapp.com/) to see the app in action!**
 
@@ -25,6 +25,8 @@ Webpack configurations can be found in `webpack.config.js`.
 [dotenv](https://github.com/motdotla/dotenv) = Loads environment variables from `.env` file into `process.env`. This allows storing environment configurations separate from the code.
 
 [Express](https://expressjs.com/) - Minimal Node.js framework.
+
+[Firebase](https://firebase.google.com/) - Real-time NoSQL database that lets you store and sync JSON data in real-time between users. 
 
 [moment](https://momentjs.com/) - Parse, validate, manipulate, and display dates in JavaScript.
 

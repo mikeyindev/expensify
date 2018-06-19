@@ -8,7 +8,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore';
-import './firebase/firebase';
+import { startSetExpenses } from './actions/expenseActions';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
@@ -25,4 +25,8 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById("app"));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById("app"));
+});
