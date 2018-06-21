@@ -28,6 +28,8 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [Firebase](https://firebase.google.com/) - Real-time NoSQL database that lets you store and sync JSON data in real-time between users. 
 
+[history](https://www.npmjs.com/package/history) - JavaScript Library that lets you manage session history anywhere inside your code, i.e. outside the context of a React component. 
+
 [moment](https://momentjs.com/) - Parse, validate, manipulate, and display dates in JavaScript.
 
 [normalize.css](http://necolas.github.io/normalize.css/) - Renders elements consistently across browsers.

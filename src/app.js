@@ -4,11 +4,13 @@ import { Provider } from 'react-redux';
 // When importing from node_modules directory, no need to specify path. Normalize.css is used for CSS reset
 import 'normalize.css/normalize.css';
 // Need to set up loaders in webpack to load CSS
-import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import AppRouter from './routers/AppRouter'
+import { AppRouter, history } from './routers/AppRouter'
+import { firebase } from './firebase/firebase';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
+import { login, logout } from './actions/authActions';
+import './styles/styles.scss';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
@@ -25,8 +27,38 @@ const jsx = (
   </Provider>
 );
 
+let hasRendered = false;
+const renderApp = () => {
+  // If app hasn't been rendered yet, render app.
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById('app'));
+    hasRendered = true;
+  }
+};
+
+// Display a loading screen while app is loading.
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(jsx, document.getElementById("app"));
+firebase.auth().onAuthStateChanged((user) => {
+  // If user logged in
+  if (user) {
+    console.log('log in');
+    // The action is dispatched here instead of in the async actions is because
+    // we want to check if user is logged in when user first visits the site,
+    // not when startLogin or startLogout async actions are triggered.
+    store.dispatch(login(user.uid));
+    // Fetch data from Firebase
+    store.dispatch(startSetExpenses()).then(() => {
+      renderApp();
+      // If user is on the LoginPage, redirect to DashboardPage.
+      if (history.location.pathname === '/') {
+        history.push('/dashboard');
+      }
+    });
+  } else {
+    store.dispatch(logout());
+    renderApp();
+    // If there's no user or user log out, send them to LoginPage.
+    history.push('/');
+  }
 });

@@ -2,10 +2,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // If NODE_ENV is not set, default to 'development'. NODE_ENV is set to
 // 'production' by Heroku and to 'test' by the test script.
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+const debug = process.env.NODE_ENV !== 'production';
 
 // Node env variables don't get passed down to client-side JavaScript files like
 // 'bundle.js'. They need to be manually passed to bundle.js.
@@ -78,10 +81,24 @@ module.exports = (env) => {
         }
       ]
     },
-    // source-map is more suited to production build as it's larger;
-    // cheap-module-eval-source-map is faster to build but shows transformed
-    // code.
-    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    optimization: {
+      minimizer: !debug ? [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              // Remove warnings.
+              warnings: false,
+              // Remove console.log() statements.
+              drop_console: true,
+              unused: true,
+              dead_code: true
+            }
+          }
+        })
+      ] : []
+    },
+    // Don't include source map in production build, only in development build.
+    devtool: isProduction ? '' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, "public"),
       // Ask server to fallback to index.html when a resource can't be found.
