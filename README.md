@@ -46,6 +46,8 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [react-redux](https://github.com/reduxjs/react-redux) - React bindings for Redux. They are not included in Redus by default.
 
+[react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - DOM bindings for [React Router](https://reacttraining.com/react-router/).
+
 [react-thunk](https://github.com/reduxjs/redux-thunk) - Thunk middleware for Redux which allows you to write action generators that return a function instead of an action, i.e. a function that performs an asynchronous dispatch or dispatch an action only if certain conditions are met.
 
 [Redux](https://redux.js.org/)

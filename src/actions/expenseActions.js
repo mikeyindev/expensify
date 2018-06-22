@@ -10,7 +10,8 @@ export const addExpense = (expense) => ({
 
 // This is the async version of ADD_EXPENSE for updating Firebase.
 export const startAddExpense = (expenseData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       description = '',
       note = '',
@@ -18,9 +19,9 @@ export const startAddExpense = (expenseData = {}) => {
       createdAt = 0
     } = expenseData;
 
-    const expense = { description, note, amount, createdAt};
+    const expense = { description, note, amount, createdAt };
 
-    return database.ref('expenses')
+    return database.ref(`users/${uid}/expenses`)
       // push() actually returns a reference to the pushed expense AND Promise
       // object so we can chain then() statements for testing purposes and
       // retrieve the expense's id assigned by Firebase.
@@ -39,10 +40,14 @@ export const removeExpense = ({ id } = {}) => ({ type: "REMOVE_EXPENSE", id });
 
 // This is the async version of REMOVE_EXPENSE for updating Firebase.
 export const startRemoveExpense = ({ id } = {}) => {
-  return (dispatch) => { 
-    return database.ref(`expenses/${id}`).remove().then(() => {
-      dispatch(removeExpense({ id }));
-    });
+  return (dispatch, getState) => { 
+    const uid = getState().auth.uid;
+    return database
+      .ref(`users/${uid}/expenses/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
   };
 };
 
@@ -55,10 +60,13 @@ export const editExpense = (id, updates) => ({
 
 // This is the async version of EDIT_EXPENSE for updating Firebase.
 export const startEditExpense = (id, updates) => {
-  return (dispatch) => {
-    return database.ref(`expenses/${id}`).update(updates).then(() => {
-      dispatch(editExpense(id, updates));
-    });
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/expenses/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch(editExpense(id, updates));
+      });
   };
 };
 
@@ -69,19 +77,19 @@ export const setExpenses = (expenses) => ({
 });
 
 export const startSetExpenses = () => {
-  return (dispatch) => {
-    return database.ref('expenses')
-      .once('value')
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/expenses`).once('value')
       .then((snapshot) => {
         const expenses = [];
         snapshot.forEach((childSnapshot) => {
-          expenses.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
+          expenses.push({ 
+            id: childSnapshot.key, 
+            ...childSnapshot.val() 
           });
         });
 
         dispatch(setExpenses(expenses));
-    });
+      });
   };
 };

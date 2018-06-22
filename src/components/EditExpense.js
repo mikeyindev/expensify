@@ -19,6 +19,7 @@ export class EditExpensePage extends React.Component {
   }
 
   render() {
+    console.log(this.props.expense);
     return (
       <div>
         <ExpenseForm 
@@ -37,9 +38,11 @@ export class EditExpensePage extends React.Component {
 // props passed to the component by the higher order component, Provider.
 const mapStateToProps = (state, props) => {
   // Returning a new prop to the EditExpensePage component
+  // console.log(props);
   return {
-    expense: state.expenses.find((expense) => 
-      expense.id === props.match.params.id)
+    expense: state.expenses.find((expense) => (
+      expense.id === props.match.params.id
+    ))
   };
 };
 
