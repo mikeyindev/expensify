@@ -1,0 +1,33 @@
+.box__layout {
+  align-items: center;
+  background: url('/images/bg.jpg');
+  background-size: cover; // Cover the entire box--layout
+  display: flex;
+  height: 100vh; // 100% of the viewport height
+  justify-content: center;
+  width: 100vw; // 100% of the viewport width
+}
+
+.login-box {
+  background: fade-out(white, .30); // Add 30% transparency to the box.
+  border-radius: 5px; // Round corners
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: $l-size;
+  text-align: center;
+  width: 30rem;
+}
+
+.login-box__title {
+  font-size: 4rem;
+  margin: 0;
+  // line-height is the height of each line, think of it as spacing between
+  // lines. "normal" in browser is 110-120% or 1.1-1.2.
+  line-height: 1;
+}
+
+.login-box__subtitle {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,24 @@
+.button__login {
+  align-items: center;
+  background-color:$bittersweet;
+  // background-color: white;
+  border-bottom: .3rem solid darken($bittersweet, 10%);
+  border-color: transparent;
+  // border-color: rgb(118, 118, 118);
+  border-width: 2px;
+  // color: rgb(118, 118, 118);
+  color: white;
+  font-size: $l-font;
+  font-weight: 400;
+  display: flex;
+  padding: $m-size $l-size;
+  text-align: center;
+}
+
+.button__login:hover {
+  background: darken($bittersweet, 2%);
+}
+
+.google-logo {
+  margin-right: 1rem;
+}

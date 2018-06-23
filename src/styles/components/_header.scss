@@ -1,0 +1,21 @@
+.header {
+  background-color: $header;
+}
+
+.header__title {
+  color: $night-rider;
+  h1 {
+    margin: 0;
+  }
+}
+
+.header__wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size 0;
+}
+
+a {
+  text-decoration: none;
+}

@@ -3,7 +3,7 @@
 
 This project uses React, Redux, and Firebase to build an expense tracker.
 
-**Click [here](https://young-thicket-17811.herokuapp.com/) to see the app in action!**
+**Click [here](https://expensify-it.herokuapp.com/) to see the app in action!**
 
 Babel configurations can be found in `.babelrc`
 

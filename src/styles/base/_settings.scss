@@ -2,14 +2,26 @@
 
 // Colors
 $arsenic: #3C474B;
+$bittersweet: #FF5A5F;
 $blue-magenta-violet: #593C8F;
+$charcoal: #484848;
+$gainsboro: #DBDBDB;
+$night-rider: #333333;
 $sunny: #FFF07C;
 $dark-jungle-green: #162521;
 $cyan-azure: #4F7CAC;
 $anti-flash-white: #EAF4F4;
 $mint-green: #F6FFF8;
+$solitude: #FAFAFB;
 $link-color: #0645AD;
 $paynes-grey: #5D737E;
+
+$border-color: $gainsboro;
+$default-font-color: $night-rider;
+$header: $solitude;
+
+// Font size
+$l-font: 1.8rem;
 
 // Spacing and font-size
 $s-size: 1.2rem;
