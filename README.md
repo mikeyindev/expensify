@@ -1,4 +1,4 @@
-# Expensify
+# Expensify It
 ## *Your expenses on track*
 
 This project uses React, Redux, and Firebase to build an expense tracker.
