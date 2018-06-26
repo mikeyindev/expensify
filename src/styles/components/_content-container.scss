@@ -1,5 +1,7 @@
 .content-container {
+  border-bottom: 1px solid $border-color;
   margin: 0 auto;
   padding: 0 $m-size;
   max-width: 80rem;
+  margin-top: 100px; // So the fixed header bar won't conceal the content
 }

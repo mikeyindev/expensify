@@ -1,8 +1,25 @@
+.button {
+  background: $button-color;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: inline-block; // Allows top & bottom margins/paddings to be respected
+  font-size: $l-font;
+  font-weight: 300;
+  line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: darken($button-color, 2%);
+}
+
 .button__login {
   align-items: center;
-  background-color:$bittersweet;
+  background-color:$button-color;
   // background-color: white;
-  border-bottom: .3rem solid darken($bittersweet, 10%);
+  border-bottom: .3rem solid darken($button-color, 10%);
   border-color: transparent;
   // border-color: rgb(118, 118, 118);
   border-width: 2px;
@@ -16,9 +33,20 @@
 }
 
 .button__login:hover {
-  background: darken($bittersweet, 2%);
+  background: darken($button-color, 2%);
 }
 
 .google-logo {
   margin-right: 1rem;
+}
+
+.button__logout {
+  background: transparent;
+  border: none;
+  color: $default-font-color;
+}
+
+.button__logout:hover {
+  border-bottom: 1px solid $border-color;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.5);
 }

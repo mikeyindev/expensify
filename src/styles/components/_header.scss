@@ -1,5 +1,11 @@
 .header {
   background-color: $header;
+  border-bottom: 1px solid $border-color;
+  // color, offset-x, offset-y, blur-radius, spread-radius
+  box-shadow: rgba(0, 0, 0, 0.06) 0 1px 5px 1px;
+  position: fixed; // Positioned relative to the browser window
+  line-height: 1;
+  width: 100vw;
 }
 
 .header__title {
@@ -10,12 +16,18 @@
 }
 
 .header__wrapper {
-  align-items: center;
+  // align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: $s-size 0;
+  margin: 0;
+  // margin: 0 auto;
+  padding: 0 $m-size;
+  // max-width: 80rem;
+  a {
+    text-decoration: none;
+  }
 }
 
-a {
-  text-decoration: none;
-}
+// a {
+//   text-decoration: none;
+// }
