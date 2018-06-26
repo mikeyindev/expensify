@@ -1,3 +1,8 @@
+* {
+  // Takes into account border & padding when setting width/height
+  box-sizing: border-box; // Default is "content-box"
+}
+
 html {
   font-size: 62.5%; // This converts 1 rem = 1 px
 }
@@ -21,6 +26,7 @@ button:disabled {
   cursor: default;
 }
 
+// State hook
 .is-active {
   font-weight: bold;
 }

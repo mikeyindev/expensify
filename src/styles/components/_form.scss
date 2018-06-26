@@ -1,0 +1,17 @@
+// .form {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.form__error {
+  font-style: italic;
+  margin-bottom: $m-size; 
+}
+
+.button-group {
+  align-items: baseline;
+  display: flex;
+  // flex-direction: column;
+  justify-content: flex-end;
+  margin: $l-size 0;
+}

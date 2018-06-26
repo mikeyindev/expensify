@@ -1,21 +1,34 @@
-.header {
+.Header {
   background-color: $header;
   border-bottom: 1px solid $border-color;
   // color, offset-x, offset-y, blur-radius, spread-radius
   box-shadow: rgba(0, 0, 0, 0.06) 0 1px 5px 1px;
   position: fixed; // Positioned relative to the browser window
   line-height: 1;
+  top: 0px; // Fix the header bar to the top
   width: 100vw;
 }
 
-.header__title {
+.Header__button--logout {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  color: $default-font-color;
+}
+
+.Header__button--logout:hover {
+  // border-bottom: 1px solid $border-color;
+  box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.5);
+}
+
+.Header__title {
   color: $night-rider;
   h1 {
     margin: 0;
   }
 }
 
-.header__wrapper {
+.Header__wrapper {
   // align-items: center;
   display: flex;
   justify-content: space-between;
@@ -27,7 +40,3 @@
     text-decoration: none;
   }
 }
-
-// a {
-//   text-decoration: none;
-// }

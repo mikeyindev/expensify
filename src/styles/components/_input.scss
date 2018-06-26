@@ -1,0 +1,63 @@
+// Copying react-dates' CSS styling
+.input {
+  border: 1px solid $border-color;
+  // border-bottom-color: rgba(0, 0, 0, 0);
+  // border-bottom-width: 2px;
+  // border-radius: 5px;
+  color: #484848;
+  font-size: 19px;
+  font-weight: 200;
+  // height: 50px;
+  line-height: 24px;
+  // outline-color: $border-color;
+  padding: 11px;
+
+  &:focus {
+    border-color: #0095FF;
+    box-shadow: inset 0 2px 2px #FAFAFB, 0 0 4px rgba(0, 119, 204, 0.4);
+    transition: all 300ms ease-in-out;
+  }
+}
+
+.input-group {
+  // align-items: center;
+  display: flex;
+  flex-direction: column; // For mobile
+  margin: 0 auto;
+  max-width: 80rem;
+  // padding: 0 $m-size;
+}
+
+.input-group__item {
+  // For mobile, the margin is on the bottom.
+  margin-bottom: $s-size;
+}
+
+.select {
+  background: white;
+  border: 1px solid $border-color;
+  border-radius: none;
+  color: #484848;
+  font-size: 19px;
+  font-weight: 200;
+  height: 48px;
+  // line-height: 24px;
+  padding: 11px 11px 9px;
+  // -webkit-appearance: none;
+}
+
+.textarea {
+  @extend .input;
+  height: 10rem;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .input-group {
+    flex-direction: row;
+  }
+
+  .input-group__item {
+    // For desktops, the margin is on the right, remove margin from bottom.
+    margin: 0 $s-size 0 0; 
+  }
+}
