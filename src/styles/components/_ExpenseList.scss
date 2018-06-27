@@ -33,6 +33,13 @@
   }
 }
 
+.ExpenseListItem__body {
+  margin-bottom: $m-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin-bottom: $l-size;
+  }
+}
+
 .ExpenseListItem__title {
   margin: 0;
   word-break: break-all;
@@ -51,8 +58,21 @@
   }
 }
 
+.ExpenseListItem--message {
+  align-items: center;
+  justify-content: center;
+  padding: $m-size;
+  // Remove row highlighting from hover.
+  &:hover {
+    background: none;
+  }
+}
 
-
+// Remove bold font-weight from table headers.
 th {
   font-weight: normal;
+}
+
+tr {
+  width: 100%;
 }
