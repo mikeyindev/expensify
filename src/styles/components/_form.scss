@@ -25,11 +25,11 @@
   color: darken($login-btn-color, 20%);
 }
 
-// So DatePicker wouldn't float above the fixed header when scrolling down.
-.DateRangePickerInput, .SingleDatePickerInput {
-  position: relative;
-  z-index: -1;
-}
+// Doing this prevents calendar from showing up  
+// .DateRangePicker, .SingleDatePicker {
+//   position: relative;
+//   z-index: -1;
+// }
 
 .form__error {
   font-style: italic;
