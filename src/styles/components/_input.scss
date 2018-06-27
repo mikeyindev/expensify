@@ -20,7 +20,7 @@
 }
 
 .input-group {
-  // align-items: center;
+  align-items: center;
   display: flex;
   flex-direction: column; // For mobile
   margin: 0 auto;
@@ -53,6 +53,7 @@
 
 @media (min-width: $desktop-breakpoint) {
   .input-group {
+    align-items: flex-start;
     flex-direction: row;
   }
 

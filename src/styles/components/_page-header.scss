@@ -12,7 +12,14 @@
 
 .page-header__title {
   font-weight: 300;
+  text-align: center;
   span {
     font-weight: bold; // Numerical value is 700
+  }
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .page-header__title {
+    text-align: left;
   }
 }

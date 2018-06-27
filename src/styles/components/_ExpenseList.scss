@@ -1,0 +1,56 @@
+.ExpenseList__table {
+  margin: 0 auto;
+  margin-top: $l-size;
+  max-width: 80rem;
+  width: 100%;
+}
+
+.ExpenseList__table__header {
+  background: $table-header-bg;
+  border: 1px solid $border-color;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size $l-size;
+}
+
+.ExpenseListItem {
+  border: 1px solid $border-color;
+  border-top: none;
+  color: $default-font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $s-size $l-size;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #EDF8F1
+  }
+  @media (min-width: $desktop-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.ExpenseListItem__title {
+  margin: 0;
+  word-break: break-all;
+}
+
+.ExpenseListItem__subtitle {
+  color: $secondary-font-color;
+  font-size: $s-font;
+}
+
+.ExpenseListItem__data {
+  margin: $s-size 0 0 0;
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0;
+    padding-left: $m-size;
+  }
+}
+
+th {
+  font-weight: normal;
+}

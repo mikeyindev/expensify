@@ -1,0 +1,16 @@
+// Visibility classes/state hooks
+
+.show-for-mobile {
+  // Won't show if the min-width is size of desktop.
+  @media (min-width: $desktop-breakpoint) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  // Won't show if the max-width is smaller than desktop.
+  // Subtract a little to make sure both styles won't show at the same time.
+  @media (max-width: $desktop-breakpoint - 0.01rem) {
+    display: none;
+  }
+}

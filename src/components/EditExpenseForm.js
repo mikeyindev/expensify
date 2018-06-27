@@ -127,17 +127,17 @@ export default class EditExpenseForm extends React.Component {
           </div>
         </div>
         <div className="button-group">
-          <div>
+
             <button className="button">Save Changes</button>
-          </div>
-          <div>
+
+
             <button
-              className="button button--remove"
+              className="button--remove"
               onClick={this.props.startRemoveExpense}
             >
               Remove Expense
             </button>
-          </div>
+
         </div>
       </form>
     );

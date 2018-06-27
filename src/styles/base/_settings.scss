@@ -1,31 +1,33 @@
 // This file is just for defining variables for the app's theme
 
 // Colors
+$anti-flash-white: #EAF4F4;
 $arsenic: #3C474B;
 $bittersweet: #FF5A5F;
 $blue-magenta-violet: #593C8F;
 $charcoal: #484848;
+$cyan-azure: #4F7CAC;
+$dark-jungle-green: #162521;
 $dodget-blue: #3B95F7;
 $gainsboro: #DBDBDB;
-$night-rider: #333333;
-$sunny: #FFF07C;
-$dark-jungle-green: #162521;
-$cyan-azure: #4F7CAC;
-$anti-flash-white: #EAF4F4;
-$mint-green: #F6FFF8;
-$solitude: #FAFAFB;
 $link-color: #0645AD;
-$paynes-grey: #5D737E;
-$pink-raspberry: #990D35;
+$mint-green: #F6FFF8;
+$night-rider: #333333;
+$solitude: #FAFAFB;
+$sunny: #FFF07C;
+$suva-grey: #8E8E8E;
 
 $border-color: $gainsboro;
+$default-font-color: $night-rider;
+$secondary-font-color: $suva-grey;
 $login-btn-color: $bittersweet;
 $primary-btn-color: $dodget-blue;
-$secondary-btn-color: $pink-raspberry;
-$default-font-color: $night-rider;
+$secondary-btn-color: $bittersweet;
+$table-header-bg: $solitude; 
 $header: $solitude;
 
 // Font size
+$s-font: 1.4rem;
 $l-font: 1.8rem;
 
 // Spacing and font-size

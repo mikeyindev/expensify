@@ -4,16 +4,15 @@ import moment from 'moment';
 import numeral from 'numeral';
 
 const ExpenseListItem = ({ id, description, amount, createdAt, dispatch }) => (
-  <div>
-    <Link to={`/edit/${id}`}>
-      <h3>{description}</h3>
-    </Link>
-    <p>
-      {numeral(amount / 100).format('$0,0.00')}
-      -
-      {moment(createdAt).format('MMMM Do, YYYY')}
-    </p>
-  </div>
+  <Link className="ExpenseListItem" to={`/edit/${id}`}>
+    <td>
+      <h3 className="ExpenseListItem__title">{description}</h3>
+      <span className="ExpenseListItem__subtitle">{moment(createdAt).format('MMMM Do, YYYY')}</span>
+    </td>
+    <td>
+      <h3 className="ExpenseListItem__data">{numeral(amount / 100).format('$0,0.00')}</h3>
+    </td>
+  </Link>
 );
 
 // This gives us access to the dispatch prop but not the state which we don't

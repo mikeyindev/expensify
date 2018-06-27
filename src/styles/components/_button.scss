@@ -15,18 +15,3 @@
 .button:hover {
   background: darken($primary-btn-color, 2%);
 }
-
-.button--remove {
-  background: $login-btn-color;
-  margin-left: $m-size;
-}
-
-.button--remove:hover {
-  background: darken($login-btn-color, 2%);
-}
-
-// So DatePicker wouldn't float above the fixed header when scrolling down.
-.DateRangePickerInput, .SingleDatePickerInput {
-  position: relative;
-  z-index: -1;
-}

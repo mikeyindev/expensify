@@ -1,17 +1,47 @@
+// Styling for both AddExpenseForm and EditExpenseForm
 // .form {
 //   display: flex;
 //   flex-direction: column;
 // }
+
+.button-group {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: $l-size 0;
+}
+
+.button--remove {
+  border: none;
+  color: $login-btn-color;
+  font-size: $l-font;
+  margin-top: $l-size;
+  text-decoration: underline;
+}
+
+.button--remove:hover {
+  color: darken($login-btn-color, 20%);
+}
+
+// So DatePicker wouldn't float above the fixed header when scrolling down.
+.DateRangePickerInput, .SingleDatePickerInput {
+  position: relative;
+  z-index: -1;
+}
 
 .form__error {
   font-style: italic;
   margin-bottom: $m-size; 
 }
 
-.button-group {
-  align-items: baseline;
-  display: flex;
-  // flex-direction: column;
-  justify-content: flex-end;
-  margin: $l-size 0;
+@media (min-width: $desktop-breakpoint) {
+  .button-group {
+    flex-direction: row;  
+  }
+
+  .button--remove {
+    margin: 0 0 0 $m-size;
+  }
 }
