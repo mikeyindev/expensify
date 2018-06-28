@@ -16,8 +16,8 @@
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Mike Yin",
+  "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
