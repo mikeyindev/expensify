@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
+import { history } from '../routers/AppRouter';
 import { SingleDatePicker } from 'react-dates';
 
 // const now = moment();
@@ -12,7 +13,7 @@ import { SingleDatePicker } from 'react-dates';
 // Setting isOutsideRange to 'false` makes every single date available.
 
 // This component has local state, so we use a class component
-export default class EditExpenseForm extends React.Component {
+export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,6 +27,7 @@ export default class EditExpenseForm extends React.Component {
       calendarFocused: false,
       error: ''
     };
+    console.log(history.location.pathname);
   }
 
   onDescriptionChange = (e) => {
@@ -126,19 +128,25 @@ export default class EditExpenseForm extends React.Component {
             />
           </div>
         </div>
-        <div className="button-group">
-
-            <button className="button">Save Changes</button>
-
-
-            <button
-              className="button--remove"
-              onClick={this.props.startRemoveExpense}
-            >
-              Remove Expense
-            </button>
-
-        </div>
+        {
+          
+          history.location.pathname.includes('/edit/') ? (
+            <div className="button-group">
+              <button className="button">Save Changes</button>
+              <button
+                className="button--remove"
+                onClick={this.props.startRemoveExpense}
+              >
+                Remove Expense
+              </button>
+            
+            </div>
+          ) : (
+            <div className="button-group">
+              <button className="button">Add Expense</button>
+            </div>
+          )
+        } 
       </form>
     );
   }

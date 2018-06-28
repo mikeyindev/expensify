@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-// When importing from node_modules directory, no need to specify path. Normalize.css is used for CSS reset
-import 'normalize.css/normalize.css';
 // Need to set up loaders in webpack to load CSS
 import 'react-dates/lib/css/_datepicker.css';
+// When importing from node_modules directory, no need to specify path. Normalize.css is used for CSS reset
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
+import { login, logout } from './actions/authActions';
 import { AppRouter, history } from './routers/AppRouter'
-import { firebase } from './firebase/firebase';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
-import { login, logout } from './actions/authActions';
-import './styles/styles.scss';
+import { firebase } from './firebase/firebase';
+// import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
@@ -37,7 +38,8 @@ const renderApp = () => {
 };
 
 // Display a loading screen while app is loading.
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
+// ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   // If user logged in
