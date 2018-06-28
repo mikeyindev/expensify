@@ -16,7 +16,7 @@ Webpack configurations can be found in `webpack.config.js`.
 
 [babel-eslint](https://github.com/babel/babel-eslint) - Lints Babel code not supported by ESLint.
 
-[babel-polyfill](https://babeljs.io/docs/en/babel-polyfill.html) - Provides polyfills necessary for a full ES2015+ environment.
+[babel-polyfill](https://babeljs.io/docs/en/babel-polyfill.html) - Provides polyfills necessary for a full ES2015+ environment on different browsers.
 
 [babel-preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) - Babel preset that transpiles ES2015+ down to ES5. Automatically determines the Babel plugins and polyfills you need based on targeted browser or runtime.
 
