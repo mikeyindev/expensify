@@ -28,7 +28,9 @@ export class EditExpensePage extends React.Component {
             onSubmit={this.onSubmit}
           />
           <div className="button-group">
-            <button className="button">Save Changes</button>
+            <button className="button" form="expense-form" type="submit">
+              Save Changes
+            </button>
             <button
               className="button--remove"
               onClick={this.startRemoveExpense}
