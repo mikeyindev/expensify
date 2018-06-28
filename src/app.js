@@ -11,7 +11,7 @@ import { AppRouter, history } from './routers/AppRouter'
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
 import { firebase } from './firebase/firebase';
-// import LoadingPage from './components/LoadingPage';
+import Loader from './components/Loader';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
@@ -38,8 +38,8 @@ const renderApp = () => {
 };
 
 // Display a loading screen while app is loading.
-ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
-// ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+// ReactDOM.render(<p>Loading</p>, document.getElementById('app'));
+ReactDOM.render(<Loader />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   // If user logged in

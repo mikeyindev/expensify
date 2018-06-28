@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { EditExpensePage } from '../../components/EditExpense';
 import expenses from '../fixtures/expenses';
 
@@ -29,7 +29,7 @@ test('should handle onSubmit', () => {
 });
 
 test('should handle startRemoveExpense', () => {
-  wrapper.find('button').simulate('click');
+  wrapper.find('.button--remove').simulate('click');
   expect(history.push).lastCalledWith('/');
   expect(startRemoveExpense).lastCalledWith({ id: expenses[0].id });
 });

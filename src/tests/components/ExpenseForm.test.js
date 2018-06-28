@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
-import ExpenseForm from '../../components/AddExpenseForm';
+import ExpenseForm from '../../components/ExpenseForm';
 import expenses from '../fixtures/expenses';
 
 test('should render ExpenseForm correctly', () => {
@@ -72,7 +72,7 @@ test('should not set amount on invalid input', () => {
   expect(wrapper.state('amount')).toBe('');
 });
 
-test('should call onSubmit propr for valid form submission', () => {
+test('should call onSubmit for valid form submission', () => {
   // Test spies/mock functions allow you to spy on the behavior of the function
   // rather than just testing the function's output.
   const onSubmitSpy = jest.fn();

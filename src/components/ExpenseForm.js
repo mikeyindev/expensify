@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
-import { history } from '../routers/AppRouter';
 import { SingleDatePicker } from 'react-dates';
 
 // const now = moment();
@@ -27,7 +26,7 @@ export default class ExpenseForm extends React.Component {
       calendarFocused: false,
       error: ''
     };
-    console.log(history.location.pathname);
+    // console.log(this.props.history.location.pathname);
   }
 
   onDescriptionChange = (e) => {
@@ -128,25 +127,6 @@ export default class ExpenseForm extends React.Component {
             />
           </div>
         </div>
-        {
-          
-          history.location.pathname.includes('/edit/') ? (
-            <div className="button-group">
-              <button className="button">Save Changes</button>
-              <button
-                className="button--remove"
-                onClick={this.props.startRemoveExpense}
-              >
-                Remove Expense
-              </button>
-            
-            </div>
-          ) : (
-            <div className="button-group">
-              <button className="button">Add Expense</button>
-            </div>
-          )
-        } 
       </form>
     );
   }
