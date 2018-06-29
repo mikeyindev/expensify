@@ -5,16 +5,14 @@ This project uses React, Redux, and Firebase to build an expense tracker.
 
 **Click [here](https://expensify-it.herokuapp.com/) to see the app in action!**
 
-Babel configurations can be found in `.babelrc`
-
+Babel configurations can be found in `.babelrc`.
+ESLint configurations can be found in `.eslintrc`.
 Webpack configurations can be found in `webpack.config.js`.
 
 
 # Dependencies
 
 [Babel](https://babeljs.io/) - JavaScript transpiler that converts ES6 to plain vanilla JavaScript.
-
-[babel-eslint](https://github.com/babel/babel-eslint) - Lints Babel code not supported by ESLint.
 
 [babel-polyfill](https://babeljs.io/docs/en/babel-polyfill.html) - Provides polyfills necessary for a full ES2015+ environment on different browsers.
 
@@ -67,11 +65,20 @@ Webpack configurations can be found in `webpack.config.js`.
 
 # Webpack Plugins
 
+[babel-eslint](https://github.com/babel/babel-eslint) - Lints Babel code not supported by ESLint.
+
 [babel-loader](https://github.com/babel/babel-loader) - Transpiles JS files using Babel and Webpack.
 
 [babel-plugin-transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) - Babel plugin for transforming class properties so there is no longer need to bind the `this` context with `this.someHandler = this.someHandler.bind(this);`. Current class syntax for JavaScript only allows you to define methods inside the class but not properties. This plugin enables properties.
 
 [css-loader](https://github.com/webpack-contrib/css-loader) - Resolves `@import` statements like `import/require()`.
+
+[ESLint](https://eslint.org/docs/user-guide/getting-started)
+
+[eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) - Airbnb's ESLint configurations used by many companies. Requires `eslint`, `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-ally` as peer dependencies. It's configured in `.eslintrc` file. It can be used as an alternative to the default `eslint:recommended`.
+
+
+[eslint-loader](https://github.com/webpack-contrib/eslint-loader) - ESLint loader for Webpack.
 
 [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) - Used to extract CSS from bundle into a separate CSS file.
 

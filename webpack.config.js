@@ -1,21 +1,22 @@
 // We're using Node so we only have access to require().
+const dotenv = require('dotenv');
 const path = require('path');
 const webpack = require('webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // If NODE_ENV is not set, default to 'development'. NODE_ENV is set to
 // 'production' by Heroku and to 'test' by the test script.
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const debug = process.env.NODE_ENV !== 'production';
+// const debug = process.env.NODE_ENV !== 'production';
 
 // Node env variables don't get passed down to client-side JavaScript files like
 // 'bundle.js'. They need to be manually passed to bundle.js.
 if (process.env.NODE_ENV === 'test') {
-  require('dotenv').config({ path: '.env.test' });
+  dotenv.config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({ path: '.env.development' });
+  dotenv.config({ path: '.env.development' });
 }
 
 console.log(path.join(__dirname, 'public'));
@@ -52,14 +53,15 @@ module.exports = (env) => {
         {
           // Run the babel-loader plugin for every JS file using the presets in
           // the .babelrc file
-          loader: "babel-loader",
+          use: ['babel-loader'],
           // Only look for JS files
           test: /\.js$/,
           // Exclude node_modules directory
           exclude: /node_modules/
         },
         {
-          // The '?' following 's' makes 's' optional, so webpack recognizes both CSS and SCSS files 
+          // The '?' following 's' makes 's' optional, so webpack recognizes
+          // both CSS and SCSS files 
           test: /\.s?css$/,
           // Use lets you specify multiple loaders. sass-loader uses node-sass
           // to convert CSS to SASS
@@ -81,22 +83,22 @@ module.exports = (env) => {
         }
       ]
     },
-    optimization: {
-      minimizer: !debug ? [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: {
-              // Remove warnings.
-              warnings: false,
-              // Remove console.log() statements.
-              drop_console: true,
-              unused: true,
-              dead_code: true
-            }
-          }
-        })
-      ] : []
-    },
+    // optimization: {
+    //   minimizer: !debug ? [
+    //     new UglifyJsPlugin({
+    //       uglifyOptions: {
+    //         compress: {
+    //           // Remove warnings.
+    //           warnings: false,
+    //           // Remove console.log() statements.
+    //           drop_console: true,
+    //           unused: true,
+    //           dead_code: true
+    //         }
+    //       }
+    //     })
+    //   ] : []
+    // },
     // Don't include source map in production build, only in development build.
     devtool: isProduction ? '' : 'inline-source-map',
     devServer: {
