@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
+import { handlePressEnterToSubmitForm } from '../util';
 
 // const now = moment();
 // console.log(now.format('MMM Do, YYYY'));
@@ -84,17 +85,22 @@ export default class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <form className="form" id="expense-form" onSubmit={this.onSubmit}>
+      <form 
+        className="form" 
+        id="expense-form" 
+        onSubmit={this.onSubmit}
+        onKeyUp={handlePressEnterToSubmitForm}
+      >
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <div className="input-group">
           <div className="input-group__item">
             <input
+              autoFocus
               className="input"
-              type="text"
-              value={this.state.description}
               onChange={this.onDescriptionChange}
               placeholder="Description"
-              autoFocus
+              type="text"
+              value={this.state.description}
             />
           </div>
           <div className="input-group__item">

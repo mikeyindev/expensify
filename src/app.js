@@ -12,6 +12,7 @@ import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
 import { firebase } from './firebase/firebase';
 import Loader from './components/Loader';
+import { addExpenseHotkey } from './util';
 
 const store = configureStore();
 // store.dispatch(addExpense({ description: 'Water bill', createdAt: 0, amount: 4500 }));
