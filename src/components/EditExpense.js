@@ -59,8 +59,8 @@ export class EditExpensePage extends React.Component {
           </div>
         </div>
         <ConfirmationModal 
-          // modalIsOpen={this.state.modalIsOpen}
-          // closeModal={this.closeModal}
+          modalIsOpen={this.state.modalIsOpen}
+          closeModal={this.closeModal}
           startRemoveExpense={this.startRemoveExpense} 
         />
       </div>
