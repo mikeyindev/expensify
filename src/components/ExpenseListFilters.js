@@ -21,7 +21,7 @@ export class ExpenseListFilters extends React.Component {
 
   onTextChange = (e) => {
     this.props.setTextFilter(e.target.value);
-    console.log(e.target.value)
+    // console.log(e.target.value)
   }
 
   onSortChange = (e) => {
@@ -39,8 +39,9 @@ export class ExpenseListFilters extends React.Component {
         <div className="input-group__item">
           <input 
             className="input"
-            placeholder="Search expenses"
+            id="input--searchbox"
             onChange={this.onTextChange} 
+            placeholder="Search expenses"
             type="text" 
             value={this.props.filters.text} 
           />

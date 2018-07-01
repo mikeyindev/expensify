@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 import filterExpenses from '../selectors/filterExpenses';
 import selectExpenseTotal from '../selectors/expenseTotal';
-import { addExpenseHotkey } from '../util';
 
 export const ExpenseSummary = ({ expenseCount, expenseTotal }) => {
   const expenseWord = expenseCount === 1 ? 'expense' : 'expenses';

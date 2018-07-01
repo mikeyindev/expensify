@@ -1,0 +1,22 @@
+.HelpModal__body {
+  font-size: $l-font;
+  font-weight: 300;
+  line-height: 1;
+  // margin: 0 $l-size;
+  margin-bottom: $l-size;
+  // Break long words into multiple lines to prevent overflow. Word may be
+  // broken at any character.
+  text-align: left;
+  word-break: break-all; 
+}
+
+.keyboard-key {
+  border: 1px solid #d6dadc;
+  border-radius: 5px;
+  border-bottom-color: #cdd2d4;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  color: #444;
+  font-weight: bold;
+  margin: 0 5px 10px;
+  padding: 6px 10px;
+}

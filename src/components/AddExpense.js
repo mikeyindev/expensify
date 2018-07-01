@@ -13,6 +13,10 @@ export class AddExpensePage extends React.Component {
     console.log(expense);
   };
 
+  onCancel = () => {
+    this.props.history.push("/");
+  }
+
   render() {
     return <div className="page-header">
         <div className="content-container">
@@ -24,6 +28,7 @@ export class AddExpensePage extends React.Component {
             <button className="button" form="expense-form" type="submit">
               Save
             </button>
+            <button className="button--remove" onClick={this.onCancel}>Cancel</button>
           </div>
         </div>
       </div>;

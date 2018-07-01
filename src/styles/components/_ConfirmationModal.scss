@@ -1,0 +1,39 @@
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+// Transition the modal over 200ms
+.ReactModalPortal .ReactModal__Overlay {
+  transition: opacity 300ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ConfirmationModal {
+  background: white;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 2px 2px;
+  color: $default-font-color;
+  max-width: 50rem;
+  outline: none;
+  padding: $l-size;
+  text-align: center;
+}
+
+.ConfirmationModal__title {
+  margin: 0 0 $m-size
+}
+
+// .ConfirmationModal__button {
+//   padding: $s-size $m-size;
+// }

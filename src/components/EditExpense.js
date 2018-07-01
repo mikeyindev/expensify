@@ -2,8 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startEditExpense, startRemoveExpense } from '../actions/expenseActions';
 import ExpenseForm from './ExpenseForm';
+import ConfirmationModal from './ConfirmationModal';
 
 export class EditExpensePage extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+  }
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  }
+  
   // The expense object is passed in by ExpenseForm when it calls onSubmit().
   // The expense object contains the updated state but doesn't include id. That
   // why we still need to use props.expense.id instead of expense.id. 
@@ -12,6 +25,12 @@ export class EditExpensePage extends React.Component {
     this.props.history.push('/');
     // console.log('Updated', expense);
   };
+
+  openModal = () => {
+    this.setState({ modalIsOpen: true }, () => {
+      console.log(this.state.modalIsOpen);
+    });
+  }
 
   startRemoveExpense = () => {
     this.props.startRemoveExpense({ id: this.props.expense.id });
@@ -33,12 +52,17 @@ export class EditExpensePage extends React.Component {
             </button>
             <button
               className="button--remove"
-              onClick={this.startRemoveExpense}
+              onClick={this.openModal}
             >
               Remove Expense
               </button>
           </div>
         </div>
+        <ConfirmationModal 
+          // modalIsOpen={this.state.modalIsOpen}
+          // closeModal={this.closeModal}
+          startRemoveExpense={this.startRemoveExpense} 
+        />
       </div>
     );
   }
