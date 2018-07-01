@@ -1,6 +1,6 @@
 .ExpenseList__table {
   margin: 0 auto;
-  margin-top: $l-size;
+  margin-top: $s-size;
   max-width: 80rem;
   width: 100%;
 }
@@ -66,6 +66,14 @@
   &:hover {
     background: none;
   }
+}
+
+.page-header__action {
+  // font-size: $m-size;
+  margin: 0 auto;
+  margin-top: $l-size;
+  max-width: 80rem;
+  // text-decoration: underline;
 }
 
 // Remove bold font-weight from table headers.
