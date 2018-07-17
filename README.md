@@ -5,6 +5,14 @@ This project uses React, Redux, and Firebase to build an expense tracker.
 
 **Click [here](https://expensify-it.herokuapp.com/) to see the app in action!**
 
+#### Mobile version screenshot:
+
+<img src="./screenshots/mobile-screenshot.png" width=500>
+
+#### Desktop version screenshot:
+
+<img src="./screenshots/desktop-screenshot.png" width=500>
+
 Babel configurations can be found in `.babelrc`.
 ESLint configurations can be found in `.eslintrc`.
 Webpack configurations can be found in `webpack.config.js`.
